@@ -1,0 +1,33 @@
+<polymer-element name="my-tooltip">
+  <template>
+    <button id="btn" on-click="toggleTooltip" type="button" class="btn btn-default" title="">Tooltip on right</button>
+  </template>
+  <script type="application/dart">
+    import 'dart:html';
+    import 'package:polymer/polymer.dart';
+    import 'package:js/js.dart'as j;
+    import 'dart:async';
+
+    @CustomTag("my-tooltip")
+    class Tooltip extends PolymerElement with ObservableMixin{
+
+      bool get applyAuthorStyles => true;
+
+      inserted() {
+        j.scoped((){
+          var options = j.map({
+            "trigger" : 'click',
+            "placement" : 'right'
+          });
+          var btn = j.context.document.querySelector('my-tooltip').webkitShadowRoot.querySelector('#btn');
+          j.context.$(btn).tooltip(options);
+        });
+        Timer.run(()=>query('#btn').click());
+      }
+
+      toggleTooltip(Event e) {
+        e.target.attributes['data-original-title'] =  new DateTime.now().toString();
+      }
+    }
+  </script>
+</polymer-element>

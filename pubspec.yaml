@@ -1,0 +1,4 @@
+name: sample
+dependencies:
+  js: any
+  polymer: any
