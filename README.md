@@ -5,6 +5,10 @@ Illustrates how to use Twitter Bootstrap 3 with Polymer Dart
 
 This example does not work.
 
+
+index2.html and modal2.html are an attempt to use polymer elements without shadow dom.
+
+
 If anyone could help would be great.
 
 How it is done with webui:
